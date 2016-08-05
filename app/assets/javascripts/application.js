@@ -17,3 +17,4 @@
 //= require bootstrap-sprockets
 //= require js/contact_me
 //= require js/jqBootstrapValidation
+//= require filterrific/filterrific-jquery
