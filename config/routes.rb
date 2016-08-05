@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'static_pages/landing'
+
   resources :users, only: [:index, :show, :edit, :update]
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
-  root "listings#index"
+  root "static_pages#landing"
 
   resources :listings do 
     resources :bookings, only: [:create]
