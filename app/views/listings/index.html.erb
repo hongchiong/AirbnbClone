@@ -1,0 +1,8 @@
+<%= link_to "Create New Listing", new_listing_path %>
+<table>
+  <% @listings.each do |listing| %>
+    <tr>
+      <td><%= link_to listing.title, listing %></td>
+    </tr>
+  <% end %>
+</table>
