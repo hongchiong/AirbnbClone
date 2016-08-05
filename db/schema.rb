@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805092250) do
+ActiveRecord::Schema.define(version: 20160805110822) do
 
   create_table "authentications", force: :cascade do |t|
     t.string   "uid"
@@ -35,17 +35,34 @@ ActiveRecord::Schema.define(version: 20160805092250) do
   add_index "bookings", ["listing_id"], name: "index_bookings_on_listing_id"
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
 
+  create_table "listing_tags", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "listing_tags", ["listing_id"], name: "index_listing_tags_on_listing_id"
+  add_index "listing_tags", ["tag_id"], name: "index_listing_tags_on_tag_id"
+
   create_table "listings", force: :cascade do |t|
     t.string   "title"
     t.integer  "user_id"
     t.text     "description"
     t.integer  "max_guests"
     t.integer  "price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "country_code"
   end
 
   add_index "listings", ["user_id"], name: "index_listings_on_user_id"
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                     null: false
