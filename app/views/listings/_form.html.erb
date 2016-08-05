@@ -1,19 +1,24 @@
 <%= form_for @listing do |f| %>
   <div>
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
+  <br>
   <div>
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: "form-control"  %>
   </div>
+  <br>
   <div>
     <%= f.label :max_guests %>
-    <%= f.number_field :max_guests %>
+    <%= f.number_field :max_guests, class: "form-control"  %>
   </div>
+  <br>
   <div>
     <%= f.label :price %>
-    <%= f.number_field :price %>
+    <%= f.number_field :price, class: "form-control"  %>
   </div>
-  <%= f.submit "Submit" %>
+  <hr>
+  <br>
+  <%= f.submit "Submit", class: "btn btn-primary col-sm-12" %>
 <% end %>
