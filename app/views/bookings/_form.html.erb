@@ -1,4 +1,9 @@
 <%= form_for [@listing, @booking] do |f| %>
+  <% if @errors.present? %>
+    <div>
+      <%= @errors %>
+    </div>
+  <% end %>
   <div>
     <%= f.label :num_guests %>
     <%= f.number_field :num_guests %>
