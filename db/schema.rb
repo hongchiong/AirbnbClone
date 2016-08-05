@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805090355) do
+ActiveRecord::Schema.define(version: 20160805092250) do
 
   create_table "authentications", force: :cascade do |t|
     t.string   "uid"
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 20160805090355) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "listing_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "num_guests"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "bookings", ["listing_id"], name: "index_bookings_on_listing_id"
+  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id"
 
   create_table "listings", force: :cascade do |t|
     t.string   "title"

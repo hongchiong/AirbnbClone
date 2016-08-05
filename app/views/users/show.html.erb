@@ -2,3 +2,26 @@
 <h1>Username: <%= @user.username %></h1>
 <h1>Password: <%= @user.password %></h1>
 <%= link_to "Edit", edit_user_path(@user) %>
+
+<h2>Bookings</h2>
+<table>
+  <tr>
+    <th>Listing Title</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Num Guests</th>
+    <th>Total Price</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @bookings.each do |booking| %>
+    <tr>
+      <td><%= link_to booking.listing.title, booking.listing %></td>
+      <td><%= booking.start_date.strftime('%d %B %Y') %></td>
+      <td><%= booking.end_date.strftime('%d %B %Y') %></td>
+      <td><%= booking.num_guests %></td>
+      <td><%= booking.total_price %></td>
+      <td><%= link_to "Cancel Booking", booking, method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
