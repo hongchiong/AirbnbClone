@@ -1,0 +1,8 @@
+<h1>Title: <%= @listing.title %></h1>
+<div>
+  Posted By: <%= @listing.user.email %>
+</div>
+<p>Description: <%= @listing.description %></p>
+<p>Max Guests: <%= @listing.max_guests %></p>
+<p>Price: <%= @listing.price %></p>
+<%= link_to "Edit", edit_listing_path(@listing) %>
