@@ -1,0 +1,7 @@
+<table>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.email, user %></td>
+    </tr>
+  <% end %>
+</table>
