@@ -15,7 +15,6 @@ class UsersController < Clearance::UsersController
   #   @user = User.new(user_params)
   #   @user.save
   # end
-wahahaha
   def create
     @user = User.new(user_params)
     if @user.save

@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
     @booking = current_user.bookings.new(booking_params)
     @booking.listing = @listing
     if @booking.save
+      BookingMailer.booking_email(current_user, @booking).deliver_now
       redirect_to current_user
     else
       @errors = @booking.errors.full_messages
