@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
       )
 
       if result.success? || result.transaction
+        Payment.create(user_id: current_user.id, booking_id: @booking.id, paid: 1)
         BookingMailer.booking_email(current_user, @booking).deliver_later
         redirect_to @listing
       else

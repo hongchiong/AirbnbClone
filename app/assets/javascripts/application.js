@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require bootstrap-sprockets
 //= require js/contact_me
 //= require js/jqBootstrapValidation
 //= require filterrific/filterrific-jquery
+//= require_tree .

@@ -60,7 +60,7 @@
                 <h3>Details</h3>
                 <ul>
                     <li>Max Guests: <%= @listing.max_guests %></li>
-                    <li>Price: <%= @listing.price %></li>
+                    <li id='listing-price' data-listing-price=<%= @listing.price%>>Price: <%= @listing.price %></li>
                 </ul>
                     <div>
                       <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Book Now</button>
