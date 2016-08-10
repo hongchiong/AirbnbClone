@@ -23,6 +23,7 @@ Rails.application.configure do
   #   location: '/usr/sbin/sendmail',
   #   arguments: '-i -t'
   # }
+  config.active_job.queue_adapter = :sidekiq
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_options = {host: 'localhost:3000'}
