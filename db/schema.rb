@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805110822) do
+ActiveRecord::Schema.define(version: 20160810042533) do
 
   create_table "authentications", force: :cascade do |t|
     t.string   "uid"
@@ -57,6 +57,18 @@ ActiveRecord::Schema.define(version: 20160805110822) do
   end
 
   add_index "listings", ["user_id"], name: "index_listings_on_user_id"
+
+  create_table "payments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "booking_id"
+    t.integer  "paid"
+    t.integer  "transaction_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "payments", ["booking_id"], name: "index_payments_on_booking_id"
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id"
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"

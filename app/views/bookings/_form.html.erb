@@ -17,5 +17,20 @@
     <%= f.label :end_date %>
     <%= f.date_field :end_date, class: "form-control" %>
   </div>
+
+  <div id="payment-form"></div>
+
+  <script src="https://js.braintreegateway.com/js/braintree-2.27.0.min.js"></script>
+  <script>
+  // We generated a client token for you so you can test out this code
+  // immediately. In a production-ready integration, you will need to
+  // generate a client token on your server (see section below).
+
+
+  braintree.setup('<%= @client_token %>', "dropin", {
+    container: "payment-form"
+  });
+</script>
+
   <%= f.submit "Submit Booking", class: 'col-sm-12 btn btn-primary' %>
 <% end %>

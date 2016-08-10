@@ -32,6 +32,7 @@ class ListingsController < ApplicationController
 
   def show
     @booking = @listing.bookings.new
+    @client_token = Braintree::ClientToken.generate
   end
 
   def edit

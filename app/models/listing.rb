@@ -3,6 +3,7 @@ class Listing < ActiveRecord::Base
   has_many :bookings
   has_many :listing_tags
   has_many :tags, through: :listing_tags
+  has_many :payments
 
   filterrific(
     default_filter_params: { sorted_by: 'created_at_desc' },
