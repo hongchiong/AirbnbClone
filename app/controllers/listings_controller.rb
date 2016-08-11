@@ -2,20 +2,27 @@ class ListingsController < ApplicationController
   before_action :find_listing, only: [:show, :edit, :update]
 
   def index
-    @filterrific = initialize_filterrific(
-      Listing,
-      params[:filterrific],
-      select_options: {
-        sorted_by: Listing.options_for_sorted_by,
-        with_country_id: Listing.countries_with_listings,
-        with_tag_ids: Tag.options_for_select
-      }
-    ) or return
 
-    @listings = @filterrific.find
-    respond_to do |format|
-      format.html
-      format.js
+    if params[:query].present?
+      @listings = Listing.search(params[:query])
+
+    else
+      # @filterrific = initialize_filterrific(
+      #   Listing,
+      #   params[:filterrific],
+      #   select_options: {
+      #     sorted_by: Listing.options_for_sorted_by,
+      #     with_country_id: Listing.countries_with_listings,
+      #     with_tag_ids: Tag.options_for_select
+      #   }
+      # ) or return
+
+      # @listings = @filterrific.find
+      # respond_to do |format|
+      #   format.html
+      #   format.js
+      # end
+      @listings = Listing.all
     end
   end
 

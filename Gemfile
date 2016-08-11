@@ -29,10 +29,12 @@ gem 'figaro'
 gem 'clearance'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'searchkick'
 
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
 gem 'country_select'
+gem 'puma'
 
 gem 'filterrific'
 
@@ -49,3 +51,7 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+	gem 'skylight'
+	gem 'rails_12factor'
+end
